@@ -37,22 +37,10 @@ const projects = (await getCollection('work'))
 </BaseLayout>
 
 <style>
-	main {
+		main {
 		margin: auto;
 		padding: 1.5rem;
-		max-width: 90ch !important;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+		max-width: 90ch;
 	}
 	.instructions {
 		line-height: 1.6;
@@ -78,6 +66,18 @@ const projects = (await getCollection('work'))
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 1.5rem;
 		padding: 0.8em 0.8em;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
 	}
 	p {
 		color: #091d35 !important;

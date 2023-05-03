@@ -51,13 +51,10 @@ const { Content } = await entry.render();
 </BaseLayout>
 
 <style>
-	main {
+		main {
 		margin: auto;
 		padding: 1.5rem;
-		max-width: 90ch !important;
-	}
-	.arrows {
-		display: inline;
+		max-width: 90ch;
 	}
 	.instructions {
 		line-height: 1.6;
@@ -66,6 +63,7 @@ const { Content } = await entry.render();
 		background-image: linear-gradient(-30deg,  #cfe0fc, #ffffff) !important;
 		padding: 2rem;
 		border-radius: 0.4rem;
+		text-align: center;
 	}
 	.instructions code {
 		font-size: 1em;
@@ -82,7 +80,9 @@ const { Content } = await entry.render();
 		font-size: 1.2rem !important;
 		color: #091d35 !important;
 	}
-
+	.arrows {
+		display: inline;
+	}
 	.back-link {
 		display: none;
 	}
