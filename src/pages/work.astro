@@ -2,11 +2,8 @@
 import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-import ContactCTA from '../components/ContactCTA.astro';
+import { Icon } from 'astro-icon';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Hero from '../components/Hero.astro';
-import Grid from '../components/Grid.astro';
 
 const projects = (await getCollection('work')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
@@ -14,26 +11,60 @@ const projects = (await getCollection('work')).sort(
 ---
 
 <BaseLayout
-	title="My Work | Jeanine White"
-	description="Learn about Jeanine White's most recent projects"
+	title="Mazechanic"
+	description="Mazechanic"
 >
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="My Work"
-				tagline="See my most recent projects below to get an idea of my past experience."
-				align="start"
-			/>
-			<Grid variant="offset">
+	<div>
+		<main>
+			<div class="instructions">
+				<Icon name="mazechaniclogo" width="100%"/>
+				<p class="w">Создайте свою игру вместе с нами! Читайте наши статьи про важнейшие аспекты работы с игровым движком Godot.</p> 
 				{
 					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
+						<PortfolioPreview project={project}/>
 					))
 				}
-			</Grid>
+				
+			</div>
+			<p class="instructions">
+				2023 MSHK GAMES
+			</p>
 		</main>
-		<ContactCTA />
 	</div>
 </BaseLayout>
+
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 90ch;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 0.5rem 0;
+		border: 3px solid #cfe0fc !important;
+		background-image: linear-gradient(-30deg,  #cfe0fc, #ffffff) !important;
+		padding: 2rem;
+		border-radius: 0.4rem;
+		text-align: center;
+	}
+	.instructions code {
+		font-size: 1em;
+		font-weight: bold;
+		color: #091d35 !important;
+		border-radius: 4px;
+		padding: 0.8em 0.8em;
+	}
+	.instructions strong {
+		color: #091d35 !important;
+	}
+	p {
+		font-weight: 500 !important;
+		font-size: 1.2rem !important;
+		color: #091d35 !important;
+	}
+	.w {
+		margin: 1em;
+	}
+</style>
