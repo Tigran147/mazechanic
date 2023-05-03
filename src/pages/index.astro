@@ -37,7 +37,7 @@ const projects = (await getCollection('work'))
 </BaseLayout>
 
 <style>
-		main {
+	main {
 		margin: auto;
 		padding: 1.5rem;
 		max-width: 90ch;
@@ -61,12 +61,23 @@ const projects = (await getCollection('work'))
 	.instructions strong {
 		color: #091d35 !important;
 	}
+
 	.link-card-grid {
 		display: flex;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1.5rem;
-		padding: 0.8em 0.8em;
+		grid-template-columns: repeat(auto-fill, minmax(24ch, auto));
+		gap: 1rem;
+		padding: 0;
 	}
+
+	@media (max-width:90ch){
+		.link-card-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(24ch, auto)) !important;
+			gap: 1rem;
+			padding: 0;
+		}
+	}
+	
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
