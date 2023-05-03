@@ -3,7 +3,7 @@ import Icon, { Props as IconProps } from './Icon.astro';
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-	{ label: 'Главная страница', href: '/' },
+	{ label: 'Главная страница', href: '/mazechanic' },
 	{ label: 'Статьи', href: '/mazechanic/work/' },
 ];
 ---
@@ -31,7 +31,7 @@ const textLinks: { label: string; href: string }[] = [
 								{
 									active:
 										Astro.url.pathname === href ||
-										(href !== '/' && Astro.url.pathname.startsWith(href)),
+										(href !== '/mazechanic' && Astro.url.pathname.startsWith(href)),
 								},
 							]}
 							href={href}
