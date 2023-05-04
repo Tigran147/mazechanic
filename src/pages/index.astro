@@ -63,6 +63,7 @@ const projects = (await getCollection('work'))
 	}
 
 	.link-card-grid {
+		margin: 0.5rem;
 		display: flex;
 		grid-template-columns: repeat(auto-fill, minmax(24ch, auto));
 		gap: 1rem;
@@ -71,6 +72,7 @@ const projects = (await getCollection('work'))
 
 	@media (max-width:90ch){
 		.link-card-grid {
+			margin: 0.5rem;
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(24ch, auto)) !important;
 			gap: 1rem;
