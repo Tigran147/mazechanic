@@ -26,13 +26,11 @@ const { Content } = await entry.render();
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
-	<main>
+	<main>		
 		<div class="instructions">
 			<div class="arrows">
-				<a class="back-link" href="/mazechanic/work/"><Icon icon="arrow-left" /> Предыдущая статья</a>
-				<a class="forward-link" href="/mazechanic/work/">Следующая статья <Icon icon="arrow-right" /></a>
+				<a class="back-link" href="/mazechanic/work/"><Icon icon="arrow-left" />Вернуться к статьям</a>
 			</div>
-			
 			<Hero title={entry.data.title} align="start">
 				<div class="details">
 					<p class="description">{entry.data.description}</p>
@@ -51,7 +49,7 @@ const { Content } = await entry.render();
 </BaseLayout>
 
 <style>
-		main {
+	main {
 		margin: auto;
 		padding: 1.5rem;
 		max-width: 90ch;
@@ -81,7 +79,11 @@ const { Content } = await entry.render();
 		color: #091d35 !important;
 	}
 	.arrows {
-		display: inline;
+		margin: 0.5rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(24ch, auto)) !important;
+		gap: 1rem;
+		padding: 0;
 	}
 	.back-link {
 		display: none;
@@ -99,6 +101,7 @@ const { Content } = await entry.render();
 	.content {
 		max-width: 65ch;
 		margin-inline: auto;
+		text-align: left;
 	}
 
 	.content > :global(* + *) {
@@ -145,6 +148,16 @@ const { Content } = await entry.render();
 	.content :global(a:hover),
 	.content :global(a:focus) {
 		text-decoration-color: currentColor;
+	}
+
+	@media (max-width:90ch){
+		.link-card-grid {
+			margin: 0.5rem;
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(24ch, auto)) !important;
+			gap: 1rem;
+			padding: 0;
+		}
 	}
 
 	@media (min-width: 50em) {
