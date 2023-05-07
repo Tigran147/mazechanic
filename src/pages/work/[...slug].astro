@@ -1,18 +1,14 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
-
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-import Hero from '../../components/Hero.astro';
-import Icon from '../../components/Icon.astro';
+interface Props {
+	project: CollectionEntry<'work'>;
+}
 
 interface Props {
 	entry: CollectionEntry<'work'>;
 }
 
-// This is a dynamic route that generates a page for every Markdown file in src/content/
-// Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
-// https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
 	const work = await getCollection('work');
 	return work.map((entry) => ({
@@ -24,30 +20,24 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
-
 <BaseLayout title={entry.data.title} description={entry.data.description}>
-	<main>		
+		<main>		
 		<div class="instructions">
-			<div class="arrows">
-				<a class="back-link" href="/mazechanic/work/"><Icon icon="arrow-left" />Вернуться к статьям</a>
-			</div>
-			<Hero title={entry.data.title} align="start">
+			<h3>{entry.data.title}</h3>
 				<div class="details">
 					<p class="description">{entry.data.description}</p>
 				</div>
-			</Hero>	
+		</div>
+		<div class="instructions">
 			<div class="content">
 				<Content />
 			</div>	
 		</div>
-
 		<p class="instructions">
 			2023 MSHK GAMES
 		</p>
 	</main>
-	
 </BaseLayout>
-
 <style>
 	main {
 		margin: auto;
@@ -78,28 +68,13 @@ const { Content } = await entry.render();
 		font-size: 1.2rem !important;
 		color: #091d35 !important;
 	}
-	.arrows {
-		margin: 0.5rem;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(24ch, auto)) !important;
-		gap: 1rem;
-		padding: 0;
-	}
-	.back-link {
-		display: none;
-	}
-
-	.forward-link {
-		display: none;
-	}
-
 	.description {
 		font-size: var(--text-lg);
 		max-width: 54ch;
 	}
 
 	.content {
-		max-width: 65ch;
+		max-width: 70ch;
 		margin-inline: auto;
 		text-align: left;
 	}
