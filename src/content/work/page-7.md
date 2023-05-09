@@ -1,9 +1,9 @@
 ---
-title: "Ключевые концепции Godot"
+title: "Создание персонажа и скрипта"
 publishDate: 2023-30-04 15:33:15
 img: /assets/Godot.png
 img_alt: пат
-description: В данной статье вы познакомитесь с четырьмя ключевыми концепциями, которые необходимо понимать.
+description: В данной статье вы узнаете, как создавать персонажа и скрипт к нему
 tags:
   - Вступление
 ---
@@ -45,30 +45,6 @@ tags:
 
 Godot использует свой собственный язык скриптов под названием GDScript. По синтаксису он похож на Python. Мы не будем рассматривать все аспекты этого языка или основные концепции программирования, поэтому в дальнейшем потребуется базовое понимание.
 
-extends KinematicBody2D
+![Code](/mazechanic/assets/code.jpg)
 
-onready var ray = $RayCast2D
-var grid_size = 32
-
-#Inputs
-var inputs = {
-  'ui_up': Vector2.UP,
-  'ui_down': Vector2.DOWN,
-  'ui_left': Vector2.LEFT,
-  'ui_right': Vector2.RIGHT
-}
-
-func _unhandled_input(event):
-  for dir in inputs.keys():
-    if event.is_action_pressed(dir):
-      if $Tween.is_active() == false:
-        move(dir)
-#Moving
-func move(dir):
-  var game = get_parent()
-  var vector_pos = inputs[dir]*grid_size
-  ray.cast_to = vector_pos
-  ray.force_raycast_update()
-  $Tween.interpolate_property(self, "position", position, 
-  position + vector_pos, 0.1,
-  Tween.TRANS_BACK, Tween.EASE_OUT)
+В данном коде представлено передвижение персонажа по сетке
