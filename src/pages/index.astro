@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Icon } from 'astro-icon';
 import Card from '../components/Card.astro';
 
 // Content Fetching: List four most recent work projects
@@ -16,7 +15,7 @@ const projects = (await getCollection('work'))
 <BaseLayout>
 	<main>
 		<div class="instructions">
-			<Icon name="mazechaniclogo" width="100%"/>
+			<img src="/mazechanic/mazechanicsiu.png" alt="mazechaniclogo" width="100%">
 			<ul role="list" class="link-card-grid">
 				<Card
 					href="https://drive.google.com/file/d/19dWgM5PR7EQM0Lngcx2_h9TdvbmATC0Y/view?usp=share_link"
